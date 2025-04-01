@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock or Mine Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #007BFF; /* Blue background color */
+            color: white; /* White text color */
+        }
+        .btn-primary {
+            background-color: red; /* Red button color */
+            border: none; /* Remove border */
+        }
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        img {
+            width: 400px; /* Set image width */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Rock or Mine Prediction</h1>
+        <form action="/predict" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="f0">Feature 0 (f0):</label>
+                <input type="number" step="any" class="form-control" id="f0" name="f0" required>
+            </div>
+            <div class="form-group">
+                <label for="f1">Feature 1 (f1):</label>
+                <input type="number" step="any" class="form-control" id="f1" name="f1" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        <div class="image-container">
+          <img src="{{ url_for('static', filename='rock.jpeg') }}" alt="Rock">
+          <img src="{{ url_for('static', filename='mine.jpg') }}" alt="Mine">
+        </div>
+    </div>
+</body>
+</html>
